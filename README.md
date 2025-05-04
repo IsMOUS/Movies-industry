@@ -1,76 +1,77 @@
-# TMDB Movies Dataset Analysis 
-### Udacity Become a Data Analyst Nanodegree | Project 2
+# 🎬 TMDB Movies Dataset Analysis
 
-| Contents 											 	   	|
-| -------- 											 	   	|
-| [Dataset Description](#Dataset-Description)			   	|
-| [Columns Descreption](#Columns-Descreption) 		   		|
-| [Questions for Analysis](#Questions-for-Analysis)	   		|
-| [Data Wrangling](#Data-Wrangling)					   		|
-| [Data Cleaning](#Data-Cleaning)						   	|
-| [Exploratory Data Analysis](#Exploratory-Data-Analysis)	|
-| [Built with](#Built-with)							   		|
+> *"I always wondered: What makes a movie successful? Is it the cast, the director, the genre… or simply the budget?"*
 
-## Dataset Description: 
-This data set contains information about 10,000 movies extracted from [TMDB](https://www.themoviedb.org/). The dataset contains movies from 1960 to 2015. Including user ratings and revenue. Original data from [Kaggle](https://www.kaggle.com/tmdb/tmdb-movie-metadata)
+Driven by this curiosity, I explored a dataset of over 10,000 movies from **TMDB (The Movie Database)** to uncover what drives popularity and financial success in films. From genres and budgets to ratings and revenue, this analysis dives into decades of movie history — from the 1960s to 2015.
 
-## Columns Descreption:
-- `id, imdb_id`: unique id or imdb id for each movie on TMDB
-- `popularity`: a metric used to measure the popularity of the movie.
-- `budget`:the total budget of the moviein USD.
-- `revenue`:the total revenue of the movie in USD.
-- `original_title`: the original title of the movie.
-- `cast`:the names of the cast of the movie separated by "|".
-- `homepage`: the website of the movie (if it existed).
-- `director`:name(s) of the director(s) of the movie (separated by "|" if there are more than one director).
-- `tagline`:a catchphrase describing the movie.
-- `keywords`: keywords related to the movie.
-- `overview`:summary of the plot of the movie.
-- `runtime`:total runtime of the movie in minutes.
-- `genres`: genres of the movie separated by "|".
-- `production_companies`:production compan(y/ies) of the movie.
-- `release_date`:release date of the movie.
-- `vote_count`:number of voters of te movie.
-- `vote_average`:the average user rating of the movie
-- `release_year`:release year of the movie (from 1960 to 2015)
-- `budget_adj`:the total budget of the moviein USD in terms of 2010 dollars, accounting for inflation over time.
-- `revenue_adj`:the total budget of the movie in USD in terms of 2010 dollars, accounting for inflation over time.
+---
 
-## Questions for Analysis:
-- Do movies with high popularity achive high revenvue?
-- What are the most filmed genres in this whole dataset?
-- Is there a correlation between a movie budget and its revenue?
+## 📦 Dataset Overview
 
-## Data Wrangling:
-Our data can be found on `tmdb-movies.csv` file provided on this repository. It is an edited version of the original Kaggle's [TMDB 5000 Movie Dataset](https://www.kaggle.com/tmdb/tmdb-movie-metadata) provided by Udacity on the Become a Data Analyst Nanodegree Program. 
+This dataset contains detailed information about 10,866 movies, including:
 
-## Data Cleaning:
-**Main Observations:**
-1. Our dataset consisted of a total of 10866 rows and 21 columns.
-2. We had only 1 duplicated row which had been dropped.
-3. Some columns wont be useful in answering our questions so they were dropped.
-4. Few columns had many missing values that needed to be handled.
-5. Columns `cast` `director` `genre` had values saperated with a '|'.
-6. `release_date`'s data type needed to be casted.
-7. We could append a column for the movie `profit` using the formula: $profit = revenue - budget$.
-8. `vote_average` better be presented as a catecorical variable that groubs multible ratings values.
-9. We might also catigorize `profit` column for better EDA
+- **Release year**
+- **Budget & revenue**
+- **Cast, director, and genres**
+- **User ratings, popularity scores, and more**
 
-## Exploratory Data Analysis:
-After finishing our dataset cleaning, we endded up with a total of 10840 records and 10 columns. The dataset now has no duplicates nor null values, and the data types are consistant with suitable categorical variable to address our questions.
-We then perfomed some analytics and created some visualizations to answer our targeted questions.
-### Q1: Do movies with high popularity achive high revenvue?
-> More popular movies recieve way more revenue than the less popular movies.
+After cleaning and wrangling, I worked with **10,840 clean records**, removing nulls, duplicates, and unnecessary columns to focus on the most meaningful features.
 
-### Q2: What are the most filmed genres in this whole dataset?
-> - `Drama`, `Comedy` and `Action` are the most three filmed genres in total of 10839 movies in our dataset.
-> - `Drama` genre alone is filmed 22.6% of the times on our dataset.
+---
 
-### Q3: Is there a correlation between a movie budget and its revenue?
-> There is positive correlation between `budget` and `revenue`, indecating a relation between them with little outliers found. 
+## ❓ Key Questions Explored
 
-## Built with:
-- JupyterLab
-- Python3
-- Pandas
-- Numpy
+1. **Do popular movies actually make more money?**
+2. **Which genres are most frequently produced?**
+3. **Is there a relationship between a movie's budget and its revenue?**
+
+---
+
+## 🧹 Data Preparation Highlights
+
+- Removed duplicates and irrelevant columns.
+- Cleaned missing data (notably in `cast`, `director`, and `homepage`).
+- Converted `release_date` to datetime format.
+- Split multi-entry fields (e.g. `genres`, `cast`) separated by `|`.
+- Created new columns:
+  - `profit = revenue - budget`
+  - Categorized `vote_average` and `profit` into bins for better visualization.
+
+---
+
+## 📊 Key Insights
+
+### 1️⃣ Do popular movies make more revenue?
+> ✅ Yes! There's a clear positive trend — the more popular a movie is, the more revenue it tends to generate.
+
+### 2️⃣ What are the most common genres?
+> 🎭 `Drama`, 😂 `Comedy`, and 🎬 `Action` are the top 3 genres.  
+> Alone, **Drama** appears in over **22%** of the movies.
+
+### 3️⃣ Is there a correlation between budget and revenue?
+> 💰 Absolutely. There is a **strong positive correlation** — higher budgets often lead to higher revenue (with a few outliers).
+
+---
+
+## 🛠 Built With
+
+- **Python 3**
+- **Jupyter Notebook**
+- **Pandas**
+- **NumPy**
+- **Matplotlib & Seaborn**
+
+---
+
+## 📁 Files in This Repo
+
+- `TMDB_Movie_Analysis.ipynb` — Main analysis notebook
+- `tmdb-movies.csv` — Cleaned dataset used
+- `TMDB_Report.pdf` — Summary of results (optional for GitHub preview)
+
+---
+
+## 👀 Curious Takeaway
+
+As a movie lover and data enthusiast, this project helped me discover how **data can tell powerful stories**. From budgets and cast to audience votes, every element leaves a trace — and when combined, they reveal fascinating insights into what makes a film succeed.
+
